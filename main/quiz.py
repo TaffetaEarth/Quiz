@@ -8,6 +8,7 @@ def level(levelnum, r_answ):
     print(quest[0])
     print("Варианты ответов:")
     print(str(quest[1]))
+    print("Введите ваш ответ:")
     answ = int(input())
     if quest[2] == answ:
         r_answ += 1
@@ -15,7 +16,7 @@ def level(levelnum, r_answ):
         if r_answ == level:
             print("Вы справились!")
         else:
-            print("Вы не справились!")
+            print("Вы не справились!Правильных ответов дано: " + str(r_answ))
     else:
         level(levelnum+1, r_answ)
 
