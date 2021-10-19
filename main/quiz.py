@@ -2,10 +2,10 @@ import sqlite3
 import random
 
 
-def level(level, r_answ):
-    cursor.execute("SELECT qu-text, answers, correct_answer FROM Quiz WHERE "
-                   "id = " + str(level) + ";")
-    quest = random.choice([cursor.fetchall()[0], cursor.fetchall()[1]])
+def level(levelnum, r_answ):
+    data = cursor.execute("SELECT question, answers, correct_answer FROM quiz WHERE id = " + str(levelnum) + ";")
+    print(data.fetchall())
+    quest = random.choice([data.fetchall()[0], data.fetchall()[0]])
     print(quest[0])
     print("Варианты ответов:")
     print(quest[1])
@@ -17,10 +17,10 @@ def level(level, r_answ):
             print("Вы справились!")
         else:
             print("Вы не справились!")
-    level(level+1, r_answ)
+    level(levelnum+1, r_answ)
 
 
 r_answ = 0
-connection = sqlite3.connect("quizdb.sqlite3")
+connection = sqlite3.connect("/home/sirius/Quiz/main/quizdb.db")
 cursor = connection.cursor()
 level(1, 0)
