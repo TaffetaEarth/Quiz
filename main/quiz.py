@@ -16,7 +16,7 @@ def level(levelnum, r_answ):
         if r_answ == level:
             print("Вы справились!")
         else:
-            print("Вы не справились!Правильных ответов дано: " + str(r_answ))
+            print("Вы не справились! Правильных ответов дано: " + str(r_answ))
     else:
         level(levelnum+1, r_answ)
 
